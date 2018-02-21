@@ -27,9 +27,10 @@ class LowArray {
 //--------------------------------------------------------------
 }  // end class LowArray
 
+
 ////////////////////////////////////////////////////////////////
 class LowArrayApp {
-    //fuck
+    //fuck 2
     public static void main(String[] args) {
         LowArray arr;                 // reference
         arr = new LowArray(100);      // create LowArray object
