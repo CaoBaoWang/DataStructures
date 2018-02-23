@@ -1,4 +1,4 @@
-package com.wangshaol.app1.D2;
+package com.hyd.smart.mylibrary.D2;
 
 // array.java
 // demonstrates Java arrays
