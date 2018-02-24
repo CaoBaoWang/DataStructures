@@ -82,7 +82,43 @@ class OrdArray {
         nElems++;                      // increment size
     }  // end insert()
 
+    /**
+     * 2.4insert
+     * @param value
+     */
+    public void insertBinary(long value) {
+        int lowerBound = 0;
+        int upperBound = nElems - 1;
+        int curIn;
+        while (true) {
+            curIn = (lowerBound + upperBound) / 2;
+//            if (a[curIn] == value){   // 取消注释则 重复数据不允许插入
+//                System.out.println("insert value already existed ");
+//                break;
+//                //                return curIn;              // found it
+//            } else
+                if (lowerBound > upperBound){
+               for(int k =nElems;k>curIn;k--)
+                   a[k]=a[k-1];
+                   a[lowerBound]=value;
+                   nElems++;
+                   break;
+            } else {                         // divide range
+                if (a[curIn] < value)
+                    lowerBound = curIn + 1; // it's in upper half
+                else
+                    upperBound = curIn - 1; // it's in lower half
+            }  // end else divide range
+        }  // end while
+    }
+
     //-----------------------------------------------------------
+
+    /**
+     * 2.4 delete()已经是二分查找
+     * @param value
+     * @return
+     */
     public boolean delete(long value) {
         int j = find(value);
         if (j == nElems)                  // can't find it
@@ -95,6 +131,23 @@ class OrdArray {
             return true;
         }
     }  // end delete()
+//    public boolean deleteBinary(long value){
+//
+//    }
+
+    /**
+     * 2.5 合并两个有序数组
+     * @param mergeArr1
+     * @param mergeArr2
+     * @return
+     */
+    public OrdArray  merge(OrdArray mergeArr1,OrdArray mergeArr2){
+        for(int i=0;i<mergeArr2.size();i++){
+            mergeArr1.insertBinary(mergeArr2.a[i]);
+        }
+        return  mergeArr1;
+    }
+
 
     //-----------------------------------------------------------
     public void display()             // displays array contents
@@ -137,5 +190,40 @@ class OrderedApp {
         arr.delete(99);
 
         arr.display();                 // display items again
+
+        /**
+         * 2.4 inser delete use Binary
+         */
+        arr.insertBinary(40);
+
+        arr.insertBinary(20);
+        arr.insertBinary(99);
+        arr.insertBinary(1);
+        arr.insertBinary(21);
+        arr.insertBinary(90);
+        arr.insertBinary(100);
+
+//        arr.insertBinary(1);
+        arr.display();
+
+        /**
+         * 2.5 merge two order array  to get an order array
+         */
+        OrdArray arr2=new OrdArray(100);
+        arr2.insertBinary(3);
+        arr2.insertBinary(5);
+        arr2.insertBinary(4);
+        arr2.insertBinary(6);
+        arr2.insertBinary(1);
+        arr2.insertBinary(2);
+        arr.insertBinary(99);
+        arr.insertBinary(90);
+        arr2.insertBinary(4);
+
+        arr2.display();
+        OrdArray merge = arr.merge(arr, arr2);
+        merge.display();
+
+
     }  // end main()
 }  // end class OrderedApp

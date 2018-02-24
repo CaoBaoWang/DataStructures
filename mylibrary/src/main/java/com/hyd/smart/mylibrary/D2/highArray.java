@@ -98,7 +98,7 @@ class HighArray {
         return  false;
     }
 
-    public int getnElems(){
+    public int size(){
         return nElems;
     }
 
@@ -118,6 +118,30 @@ class HighArray {
         return  index;
     }
 
+    /**
+     * 2.6 数据去重
+     */
+    public void noDup(){
+        for (int i=0;i< nElems;i++){
+            for (int j=i+1;j<nElems;j++){
+                if(a[i]==a[j]){
+                    a[j]=-1;
+                }
+            }
+        }
+        display();
+        for(int i=0;i<nElems;i++){
+            if(a[i]==-1){
+                for(int j=i;j<nElems;j++){
+                    a[j]=a[j+1];
+                    i=0;
+
+                }
+            }
+        }
+
+    }
+
 
 
     //-----------------------------------------------------------
@@ -130,18 +154,20 @@ class HighArrayApp {
         HighArray arr;                // reference to array
         arr = new HighArray(maxSize); // create the array
 
+        arr.insert(22);
         arr.insert(77);               // insert 10 items
         arr.insert(99);
-        arr.insert(44);
-        arr.insert(55);
         arr.insert(22);
-        arr.insert(88);
-        arr.insert(11);
-        arr.insert(00);
-        arr.insert(66);
-        arr.insert(33);
+        arr.insert(22);
+        arr.insert(44);
+        arr.insert(99);
+        arr.insert(77);               // insert 10 items
+        arr.insert(99);
+
 
         arr.display();                // display items
+        arr.noDup();
+        arr.display();
 
         int searchKey = 35;           // search for item
         if (arr.find(searchKey))
@@ -161,12 +187,13 @@ class HighArrayApp {
          */
         arr.removeMax();
         arr.display();                // display items again
+        HighArray arrBackups=arr;
 
         /**
          * 2.3
          */
         long[]  arr1=new long [100];
-        int arrElems= arr.getnElems();
+        int arrElems= arr.size();
         for(int i=0;i<arrElems;i++){
             arr1[i]=arr.getMax();
             arr.removeMax();
@@ -174,5 +201,7 @@ class HighArrayApp {
         for (long a : arr1){
             System.out.print(a+",");//由于arr1长度是100 没赋值的默认值是0
         }
+        arrBackups.display();                // display items again
+
     }  // end main()
 }  // end class HighArrayApp
