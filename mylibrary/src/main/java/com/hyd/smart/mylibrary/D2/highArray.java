@@ -120,6 +120,7 @@ class HighArray {
 
     /**
      * 2.6 数据去重
+     * -1 可以是null 或 数据中不能会出现的 的数字
      */
     public void noDup(){
         for (int i=0;i< nElems;i++){
@@ -129,15 +130,17 @@ class HighArray {
                 }
             }
         }
-        display();
         for(int i=0;i<nElems;i++){
             if(a[i]==-1){
                 for(int j=i;j<nElems;j++){
                     a[j]=a[j+1];
-                    i=0;
-
+                    if(j==nElems-2 && a[j]==-1){
+                        i--;
+                    }
                 }
+                nElems--;
             }
+
         }
 
     }
@@ -155,18 +158,25 @@ class HighArrayApp {
         arr = new HighArray(maxSize); // create the array
 
         arr.insert(22);
-        arr.insert(77);               // insert 10 items
+        arr.insert(5);               // insert 10 items
         arr.insert(99);
         arr.insert(22);
         arr.insert(22);
-        arr.insert(44);
+        arr.insert(10);
         arr.insert(99);
         arr.insert(77);               // insert 10 items
         arr.insert(99);
+        arr.insert(22);
+        arr.insert(99);
+        arr.insert(99);
+        arr.insert(99);
+        arr.insert(77);               // insert 10 items
+        arr.insert(77);               // insert 10 items
 
 
         arr.display();                // display items
         arr.noDup();
+        System.out.print("noDup display");
         arr.display();
 
         int searchKey = 35;           // search for item
