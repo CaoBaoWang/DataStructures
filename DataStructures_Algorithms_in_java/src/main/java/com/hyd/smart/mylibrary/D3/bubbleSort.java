@@ -31,7 +31,6 @@ class ArrayBub
    public void bubbleSort()
       {
       int out, in;
-
       for(out=nElems-1; out>1; out--)   // outer loop (backward)
          for(in=0; in<out; in++)        // inner loop (forward)
             if( a[in] > a[in+1] )       // out of order?
@@ -39,15 +38,20 @@ class ArrayBub
       }  // end bubbleSort()
       public void bubbleSortMe(){
          for (int i=0;i<nElems;i++){
-            for(int j = 0;i<nElems;j++);{
-//               if()
+            for(int j = 0;j<nElems-1-i;j++){
+               if(a[j]>a[j+1]){
+                  long temp=a[j];
+                  a[j]=a[j+1];
+                  a[j+1]=temp;
+               }
+
             }
          }
       }
 //--------------------------------------------------------------
-   private void swap(int one, int two)
+      private void swap(int one, int two)
       {
-      long temp = a[one];
+         long temp = a[one];
       a[one] = a[two];
       a[two] = temp;
       }
@@ -75,9 +79,12 @@ class BubbleSortApp
 
       arr.display();                // display items
 
-      arr.bubbleSort();             // bubble sort them
-//         arr.bubbleSortMe();
+
+
+         arr.bubbleSortMe();
       arr.display();                // display them again
+         arr.bubbleSort();             // bubble sort them
+         arr.display();                // display them again
       }  // end main()
    }  // end class BubbleSortApp
 ////////////////////////////////////////////////////////////////
