@@ -25,28 +25,37 @@ class ArraySel
       {
       for(int j=0; j<nElems; j++)       // for each element,
          System.out.print(a[j] + " ");  // display it
-      System.out.println("");
+      System.out.println("count="+count);
       }
+      int count;
 //--------------------------------------------------------------
    public void selectionSort()
       {
+         count=0;
       int out, in, min;
 
       for(out=0; out<nElems-1; out++)   // outer loop
          {
+            count++;
          min = out;                     // minimum
-         for(in=out+1; in<nElems; in++) // inner loop
+         for(in=out+1; in<nElems; in++){
+            count++;
             if(a[in] < a[min] )         // if min greater,
-                min = in;               // we have a new min
-         swap(out, min);                // swap them
+               min = in;
+         }
+         swap(out, min);
          }  // end for(out)
       }  // end selectionSort()
 
       public void selectSortMe(){
          int min ;
+         count=0;
          for(int i=0;i<nElems-1;i++){
+            count++;
             min=i;
             for(int j =i+1;j<nElems;j++){
+               count++;
+
                if(a[min]>a[j]){
                   min=j;
                }
@@ -88,8 +97,8 @@ class SelectSortApp
 
       arr.display();                // display items
 
-//      arr.selectionSort();          // selection-sort them
-      arr.selectSortMe();
+      arr.selectionSort();          // selection-sort them
+//      arr.selectSortMe();
       arr.display();                // display them again
       }  // end main()
    }  // end class SelectSortApp

@@ -1,15 +1,15 @@
 package com.hyd.smart.mylibrary.D3;
 
-// bubbleSort.java
-// demonstrates bubble sort
-// to run this program: C>java BubbleSortApp
-////////////////////////////////////////////////////////////////
-class ArrayBub {
+// insertSort.java
+// demonstrates insertion sort
+// to run this program: C>java InsertSortApp
+//--------------------------------------------------------------
+class ArrayIns {
     private long[] a;                 // ref to array a
     private int nElems;               // number of data items
 
     //--------------------------------------------------------------
-    public ArrayBub(int max)          // constructor
+    public ArrayIns(int max)          // constructor
     {
         a = new long[max];                 // create the array
         nElems = 0;                        // no items yet
@@ -31,54 +31,54 @@ class ArrayBub {
     }
 
     //--------------------------------------------------------------
+    public void insertionSort() {
+        count = 0;
+
+        int in, out;
+
+        for (out = 1; out < nElems; out++)     // out is dividing line
+        {
+            count++;
+
+            long temp = a[out];            // remove marked item
+            in = out;                      // start shifts at out
+            while (in > 0 && a[in - 1] >= temp) // until one is smaller,
+            {
+                count++;
+
+                a[in] = a[in - 1];            // shift item to right
+                --in;                       // go left one position
+            }
+            a[in] = temp;                  // insert marked item
+        }  // end for
+    }  // end insertionSort()
+
     int count = 0;
 
-    public void bubbleSort() {
-        int out, in;
-        count=0;
-        for (out = nElems - 1; out > 1; out--) {
-            count++;
-            // outer loop (backward)
-            for (in = 0; in < out; in++) {
-                count++;
-                // inner loop (forward)
-                if (a[in] > a[in + 1])       // out of order?
-                    swap(in, in + 1);
-            }
-        }
-    }  // end bubbleSort()
-
-    public void bubbleSortMe() {
+    public void insertSortMe() {
+        long temp;
         count = 0;
-        for (int i = 0; i < nElems-1; i++) {
+        int i ,j ;
+        for ( i = 1; i < nElems; i++) {
             count++;
-            for (int j = 0; j < nElems - 1 - i; j++) {
+            temp = a[i];
+            for ( j = i; j > 0 && temp <= a[j - 1]; j--){
                 count++;
-                if (a[j] > a[j + 1]) {
-                    long temp = a[j];
-                    a[j] = a[j + 1];
-                    a[j + 1] = temp;
-                }
-
+                a[j]=a[j-1];
             }
+            a[j]=temp;
         }
     }
 
-    //--------------------------------------------------------------
-    private void swap(int one, int two) {
-        long temp = a[one];
-        a[one] = a[two];
-        a[two] = temp;
-    }
 //--------------------------------------------------------------
-}  // end class ArrayBub
+}  // end class ArrayIns
 
 ////////////////////////////////////////////////////////////////
-class BubbleSortApp {
+class InsertSortApp {
     public static void main(String[] args) {
         int maxSize = 100;            // array size
-        ArrayBub arr;                 // reference to array
-        arr = new ArrayBub(maxSize);  // create the array
+        ArrayIns arr;                 // reference to array
+        arr = new ArrayIns(maxSize);  // create the array
 
         arr.insert(77);               // insert 10 items
         arr.insert(99);
@@ -93,9 +93,9 @@ class BubbleSortApp {
 
         arr.display();                // display items
 
-        arr.bubbleSortMe();
-//        arr.bubbleSort();             // bubble sort them
+//      arr.insertionSort();          // insertion-sort them
+        arr.insertSortMe();
+
         arr.display();                // display them again
     }  // end main()
-}  // end class BubbleSortApp
-////////////////////////////////////////////////////////////////
+}  // end class InsertSortApp
