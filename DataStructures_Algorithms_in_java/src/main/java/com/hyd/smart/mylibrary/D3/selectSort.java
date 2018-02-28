@@ -1,5 +1,8 @@
 package com.hyd.smart.mylibrary.D3;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 // selectSort.java
 // demonstrates selection sort
 // to run this program: C>java SelectSortApp
@@ -80,26 +83,35 @@ class SelectSortApp
    {
    public static void main(String[] args)
       {
-      int maxSize = 100;            // array size
-      ArraySel arr;                 // reference to array
-      arr = new ArraySel(maxSize);  // create the array
+         int maxSize = 10000;            // array size
+         ArraySel arr;                 // reference to array
 
-      arr.insert(77);               // insert 10 items
-      arr.insert(99);
-      arr.insert(44);
-      arr.insert(55);
-      arr.insert(22);
-      arr.insert(88);
-      arr.insert(11);
-      arr.insert(00);
-      arr.insert(66);
-      arr.insert(33);
+         arr = new ArraySel(maxSize);  // create the array
+//         for(int j =0;j<maxSize;j++){
+//            long n=(long)(Math.random()*(maxSize-1));
+//            arr.insert(n);
+//         }
+         for (int i=maxSize-1;i>=0;i--){
+            arr.insert(i);
+         }
+//      arr.insert(77);               // insert 10 items
+//      arr.insert(99);
+//      arr.insert(44);
+//      arr.insert(55);
+//      arr.insert(22);
+//      arr.insert(88);
+//      arr.insert(11);
+//      arr.insert(00);
+//      arr.insert(66);
+//      arr.insert(33);
 
-      arr.display();                // display items
-
-      arr.selectionSort();          // selection-sort them
+         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");//设置日期格式
+         arr.display();
+         System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+         arr.selectionSort();          // selection-sort them
+         System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+         arr.display();                // display them again
 //      arr.selectSortMe();
-      arr.display();                // display them again
       }  // end main()
    }  // end class SelectSortApp
 ////////////////////////////////////////////////////////////////
