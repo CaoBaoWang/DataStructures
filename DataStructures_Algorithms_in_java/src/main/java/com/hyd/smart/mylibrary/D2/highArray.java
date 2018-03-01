@@ -130,6 +130,7 @@ class HighArray {
                 }
             }
         }
+        display();
         for(int i=0;i<nElems;i++){
             if(a[i]==-1){
                 for(int j=i;j<nElems;j++){

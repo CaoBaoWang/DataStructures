@@ -57,17 +57,28 @@ class ArrayIns {
 
     public void insertSortMe() {
         long temp;
-        count = 0;
         int i ,j ;
         for ( i = 1; i < nElems; i++) {
-            count++;
             temp = a[i];
             for ( j = i; j > 0 && temp <= a[j - 1]; j--){
-                count++;
                 a[j]=a[j-1];
             }
             a[j]=temp;
         }
+    }
+    /**
+     * 3.2
+     */
+    public long median(){
+
+        return a[nElems/2];
+    }
+
+    /**
+     * 3.3
+     */
+    public void noDups(){
+
     }
 
 //--------------------------------------------------------------
