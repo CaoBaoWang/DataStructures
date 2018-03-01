@@ -38,7 +38,7 @@ class ArrayBub {
 
     public void bubbleSort() {
         int out, in;
-        count=0;
+        count = 0;
         for (out = nElems - 1; out > 1; out--) {
             count++;
             // outer loop (backward)
@@ -53,7 +53,7 @@ class ArrayBub {
 
     public void bubbleSortMe() {
         count = 0;
-        for (int i = 0; i < nElems-1; i++) {
+        for (int i = 0; i < nElems - 1; i++) {
             count++;
             for (int j = 0; j < nElems - 1 - i; j++) {
                 count++;
@@ -65,6 +65,35 @@ class ArrayBub {
 
             }
         }
+    }
+
+    /**
+     * 课后编程3.1
+     */
+    public void bubbleSortBothwayMe() {
+        count = 0;
+        int leftIndex = 0;
+        int rightIndex = nElems - 1;
+        while (leftIndex<rightIndex) {
+            for (int i = leftIndex; i < rightIndex; i++) {
+                if (a[i] > a[i + 1]) {
+                    long temp = a[i];
+                    a[i] = a[i + 1];
+                    a[i + 1] = temp;
+                }
+            }
+            rightIndex--;
+            for (int j = rightIndex; j > leftIndex; j--) {
+                if (a[j] < a[j - 1]) {
+                    long temp = a[j - 1];
+                    a[j - 1] = a[j];
+                    a[j] = temp;
+
+                }
+            }
+            leftIndex++;
+        }
+
     }
 
     //--------------------------------------------------------------
@@ -88,7 +117,7 @@ class BubbleSortApp {
 //            arr.insert(n);
 //        }
 
-        for (int i=maxSize-1;i>=0;i--){
+        for (int i = maxSize - 1; i >= 0; i--) {
             arr.insert(i);
         }
 //        arr.insert(77);               // insert 10 items
@@ -104,7 +133,8 @@ class BubbleSortApp {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");//设置日期格式
         arr.display();
         System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
-        arr.bubbleSortMe();
+//        arr.bubbleSortMe();
+        arr.bubbleSortBothwayMe();
 //        arr.bubbleSort();             // bubble sort them
         System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
         arr.display();                // display them again
