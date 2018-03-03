@@ -68,6 +68,38 @@ class ArrayBub {
     }
 
     /**
+     * 奇偶排序
+     */
+    public void oddEvenSort(){
+
+        while (true){
+            int count =0;
+            for(int j =1 ;j<nElems-1;j+=2){
+//                if(j+1>nElems-1) break;
+                if(a[j]>a[j+1]){
+                    long temp= a[j];
+                    a[j]=a[j+1];
+                    a[j+1]=temp;
+                    count++;
+                }
+            }
+            for(int i=0;i<nElems;i+=2){
+                if(a[i]>a[i+1]){
+                    long temp =a[i];
+                    a[i]=a[i+1];
+                    a[i+1]=temp;
+                    count++;
+                }
+            }
+            if(count==0)break;
+
+        }
+
+
+
+    }
+
+    /**
      * 课后编程3.1
      */
     public void bubbleSortBothwayMe() {
@@ -134,7 +166,9 @@ class BubbleSortApp {
         arr.display();
         System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
 //        arr.bubbleSortMe();
-        arr.bubbleSortBothwayMe();
+//        arr.bubbleSortBothwayMe();
+        arr.oddEvenSort();
+
 //        arr.bubbleSort();             // bubble sort them
         System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
         arr.display();                // display them again
