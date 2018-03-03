@@ -57,28 +57,49 @@ class ArrayIns {
 
     public void insertSortMe() {
         long temp;
-        int i ,j ;
-        for ( i = 1; i < nElems; i++) {
+        int i, j;
+        for (i = 1; i < nElems; i++) {
             temp = a[i];
-            for ( j = i; j > 0 && temp <= a[j - 1]; j--){
-                a[j]=a[j-1];
+            for (j = i; j > 0 && temp <= a[j - 1]; j--) {
+                a[j] = a[j - 1];
             }
-            a[j]=temp;
+            a[j] = temp;
         }
     }
+
     /**
      * 3.2
      */
-    public long median(){
+    public long median() {
 
-        return a[nElems/2];
+        return a[nElems / 2];
     }
 
     /**
      * 3.3
      */
-    public void noDups(){
+    public void noDups() {
+        int i = 0;
+        int j = 0;
+        int k=0;
+        int dupsCount =0;
+        while (true) {
+            if (j == nElems) {
+                nElems-=dupsCount;
+                break;
+            }
+            j++;
 
+            if (a[k] < a[j]) {
+                a[i + 1] = a[j];
+                i ++;
+                k=j;
+                continue;
+            }else if(a[k]==a[j]){
+                dupsCount++;
+            }
+        }
+        System.out.println("dupsCount="+dupsCount);
     }
 
 //--------------------------------------------------------------
@@ -92,11 +113,14 @@ class InsertSortApp {
         arr = new ArrayIns(maxSize);  // create the array
 
         arr.insert(77);               // insert 10 items
+        arr.insert(77);               // insert 10 items
         arr.insert(99);
         arr.insert(44);
         arr.insert(55);
         arr.insert(22);
         arr.insert(88);
+        arr.insert(11);
+        arr.insert(11);
         arr.insert(11);
         arr.insert(00);
         arr.insert(66);
@@ -106,7 +130,8 @@ class InsertSortApp {
 
 //      arr.insertionSort();          // insertion-sort them
         arr.insertSortMe();
-
         arr.display();                // display them again
+        arr.noDups();
+        arr.display();
     }  // end main()
 }  // end class InsertSortApp
