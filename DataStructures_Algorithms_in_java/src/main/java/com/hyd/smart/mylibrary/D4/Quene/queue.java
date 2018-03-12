@@ -109,6 +109,7 @@ class Deque{
       if(front==maxSize){
          front=0;
       }
+      nItems--;
       return  temp;
    }
    public long removeRight(){
@@ -116,6 +117,9 @@ class Deque{
       if(rear==-1){
          rear=maxSize-1;
       }
+
+      nItems--;
+
       return temp;
    }
    public boolean isFull(){
