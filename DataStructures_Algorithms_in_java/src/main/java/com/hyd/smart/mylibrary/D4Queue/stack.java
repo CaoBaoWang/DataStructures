@@ -1,4 +1,4 @@
-package com.hyd.smart.mylibrary.D4;
+package com.hyd.smart.mylibrary.D4Queue;
 
 // stack.java
 // demonstrates stacks

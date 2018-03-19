@@ -1,4 +1,4 @@
-package com.hyd.smart.mylibrary.D5;
+package com.hyd.smart.mylibrary.D5Link;
 
 // firstLastList.java
 // demonstrates list with first and last references

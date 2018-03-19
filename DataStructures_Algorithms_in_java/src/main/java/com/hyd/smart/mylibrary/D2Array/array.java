@@ -1,4 +1,4 @@
-package com.hyd.smart.mylibrary.D2;
+package com.hyd.smart.mylibrary.D2Array;
 
 // array.java
 // demonstrates Java arrays

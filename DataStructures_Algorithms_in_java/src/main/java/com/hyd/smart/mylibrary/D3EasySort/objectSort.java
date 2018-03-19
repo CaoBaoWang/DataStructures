@@ -1,4 +1,4 @@
-package com.hyd.smart.mylibrary.D3;
+package com.hyd.smart.mylibrary.D3EasySort;
 
 // objectSort.java
 // demonstrates sorting objects (uses insertion sort)

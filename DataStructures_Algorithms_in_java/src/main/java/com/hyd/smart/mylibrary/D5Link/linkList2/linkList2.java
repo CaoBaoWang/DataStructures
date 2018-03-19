@@ -1,4 +1,4 @@
-package com.hyd.smart.mylibrary.D5.linkList2;
+package com.hyd.smart.mylibrary.D5Link.linkList2;
 
 // linkList2.java
 // demonstrates linked list

@@ -1,4 +1,4 @@
-package com.hyd.smart.mylibrary.D2;
+package com.hyd.smart.mylibrary.D2Array;
 
 // lowArray.java
 // demonstrates array class with low-level interface
