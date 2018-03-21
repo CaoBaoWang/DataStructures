@@ -1,5 +1,8 @@
 package com.hyd.smart.mylibrary.D5Link.doublyLink;
 
+import java.util.Iterator;
+import java.util.LinkedList;
+
 // doublyLinked.java
 // demonstrates doubly-linked list
 // to run this program: C>java DoublyLinkedApp
@@ -180,6 +183,10 @@ class DoublyLinkedList {
 class DoublyLinkedApp {
     public static void main(String[] args) {                             // make a new list
         DoublyLinkedList theList = new DoublyLinkedList();
+        LinkedList l=new LinkedList();
+        Iterator iterator = l.iterator();
+
+
 
         theList.insertFirst(22);      //
         // at front
