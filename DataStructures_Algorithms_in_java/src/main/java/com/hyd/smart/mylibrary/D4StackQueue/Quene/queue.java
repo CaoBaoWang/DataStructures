@@ -1,4 +1,4 @@
-package com.hyd.smart.mylibrary.D4Queue.Quene;
+package com.hyd.smart.mylibrary.D4StackQueue.Quene;
 
 // Queue.java
 // demonstrates queue

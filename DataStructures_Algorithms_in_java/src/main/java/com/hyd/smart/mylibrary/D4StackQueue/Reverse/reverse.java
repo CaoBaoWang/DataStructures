@@ -1,4 +1,4 @@
-package com.hyd.smart.mylibrary.D4Queue.Reverse;// reverse.java
+package com.hyd.smart.mylibrary.D4StackQueue.Reverse;// reverse.java
 // stack used to reverse a string
 // to run this program: C>java ReverseApp
 import java.io.*;                 // for I/O

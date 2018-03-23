@@ -1,4 +1,4 @@
-package com.hyd.smart.mylibrary.D4Queue.Brackets;// brackets.java
+package com.hyd.smart.mylibrary.D4StackQueue.Brackets;// brackets.java
 // stacks used to check matching brackets
 // to run this program: C>java bracketsApp
 import java.io.*;                 // for I/O

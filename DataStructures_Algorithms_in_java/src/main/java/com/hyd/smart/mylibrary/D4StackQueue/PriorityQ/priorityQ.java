@@ -1,4 +1,4 @@
-package com.hyd.smart.mylibrary.D4Queue.PriorityQ;
+package com.hyd.smart.mylibrary.D4StackQueue.PriorityQ;
 
 // priorityQ.java
 // demonstrates priority queue
