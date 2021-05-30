@@ -3,6 +3,8 @@ package com.hyd.smart.mylibrary.D6Recursion;// triangle.java
 // to run this program: C>java TriangleApp
 import java.io.*;
 ////////////////////////////////////////////////////////////////
+
+//test
 class TriangleApp
    {
    static int theNumber;
